@@ -558,6 +558,7 @@ ul {
   max-width: 700px;
   min-width: 350px;
   margin: 70px auto;
+  padding-inline: 19px;
 }
 .product-detials .prices-rating {
   display: -webkit-box;
