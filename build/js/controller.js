@@ -408,13 +408,14 @@ const prevSlide = function (sildess, maxSlides) {
 /// listner for the product preview
 let maxSlide;
 let allImg;
+let currentProduct;
 productsContainer.addEventListener("click", (e) => {
   const img = e.target.closest(".img-container");
   const title = e.target.closest(".item-title");
 
   if (img || title) {
     const curProductID = +e.target.closest(".product-item").dataset.id;
-    const currentProduct = model.Products.find((el) => el.id === curProductID);
+    currentProduct = model.Products.find((el) => el.id === curProductID);
     console.log(currentProduct);
     clear();
 
@@ -445,9 +446,19 @@ perentElement.addEventListener("click", (e) => {
   const rightBtn = e.target.closest(".arrow-right");
   const leftBtn = e.target.closest(".arrow-left");
   const dot = e.target.closest(".dot");
+  const wishBtn = e.target.closest(".wish-logo");
   if (rightBtn) nextSlide(allImg, maxSlide);
   if (leftBtn) prevSlide(allImg, maxSlide);
   if (dot) goToNextSlide(allImg, +dot.dataset.slide);
+  if (wishBtn) {
+    if (!currentProduct.wished) {
+      model.addToWishlist(currentProduct.id);
+    } else {
+      model.deleteWishList(currentProduct.id);
+    }
+    update(currentProduct);
+    productView.update(x());
+  }
 });
 
 const checkIfClothing = function (obj) {
@@ -588,4 +599,42 @@ const generateMarkUp = function (productOBJ) {
 </div>
  
  `;
+};
+
+const update = function (data) {
+  // if (!data || (Array.isArray(data) && data.length === 0))
+  //   return this.renderError();
+
+  const newMarkup = generateMarkUp(data);
+
+  const newDOM = document.createRange().createContextualFragment(newMarkup);
+  console.log(newDOM, "LOK!!");
+  const newElements = Array.from(newDOM.querySelectorAll("*"));
+  const curElements = Array.from(
+    selectedProductContainer.querySelectorAll("*")
+  );
+  // console.log(newElements, "LOK!!");
+  // console.log(curElements, "LOK!!");
+
+  // ------------  VERY!! ! IMPORTANT ----// NodeValue see notes
+  newElements.forEach((newEl, i) => {
+    const curEl = curElements[i];
+    // console.log(curEl, newEl.isEqualNode(curEl));
+    // Cheacking the the elment is differant and checking if it is a text or not , and then updates changed text
+    if (
+      !newEl.isEqualNode(curEl) &&
+      newEl.firstChild?.nodeValue.trim() !== ""
+    ) {
+      // console.log(newEl.firstChild?.nodeValue.trim(), '🎆🎆'); nodeValue always returns text it can't return elements.
+      curEl.textContent = newEl.textContent;
+    }
+    // Update changed attribues (dataset)
+    if (!newEl.isEqualNode(curEl)) {
+      // console.log(newEl.attributes, '!!!!');
+      // console.log(Array.from(newEl.attributes));
+      Array.from(newEl.attributes).forEach((attr) =>
+        curEl.setAttribute(attr.name, attr.value)
+      );
+    }
+  });
 };
