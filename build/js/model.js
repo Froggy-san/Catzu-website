@@ -55,8 +55,8 @@ const products = [
       "https://ehabgroup.com/media/catalog/product/cache/3400290c1ce8265e757d2073b3c47523/n/o/nokia_c21_plus_3g_64g_warm_gray-2.png",
       "https://ehabgroup.com/media/catalog/product/cache/3400290c1ce8265e757d2073b3c47523/n/o/nokia_c21_plus_3g_64g_warm_gray_-1.png",
     ],
-    discountedPrice: 3.799,
-    price: 3.333,
+    discountedPrice: 3799,
+    price: 3333,
     rating: { rate: 2.6, count: 400 },
     title: "Nokia C21 Plus 3G 64GB Warm Gray ",
   },
@@ -76,8 +76,8 @@ const products = [
       "https://m.media-amazon.com/images/I/41Or8HPsxkL._AC_SL1000_.jpg",
       "https://m.media-amazon.com/images/I/61HZsMD+viL._AC_SL1500_.jpg",
     ],
-    discountedPrice: 9.349,
-    price: 8.199,
+    discountedPrice: 9349,
+    price: 8199,
     rating: { rate: 4.6, count: 400 },
     title: "Xiaomi Redmi 12C 4GB 128GB Gray",
   },
@@ -109,8 +109,8 @@ MediaTek Helio G99 processor
       "https://ehabgroup.com/media/catalog/product/cache/3400290c1ce8265e757d2073b3c47523/r/e/realme_11_4g_8gb_256gb_gold_4_.png",
       "https://ehabgroup.com/media/catalog/product/cache/3400290c1ce8265e757d2073b3c47523/r/e/realme_11_4g_8gb_256gb_gold_2_.png",
     ],
-    discountedPrice: 9.349,
-    price: 8.199,
+    discountedPrice: 9349,
+    price: 8199,
     rating: { rate: 4.6, count: 400 },
     title: "Realme 11 4G 8GB 256GB Gold",
   },
@@ -130,8 +130,8 @@ MediaTek Helio G99 processor
       "c:UsersMOHAME~1AppDataLocalTempoppo-find-x5-pro-8gb-256gb-black-1.jpg",
       "https://ehabgroup.com/media/catalog/product/cache/3400290c1ce8265e757d2073b3c47523/o/p/oppo-find-x5-pro-8gb-256gb-black-3.jpg",
     ],
-    discountedPrice: 18.849,
-    price: 16.499,
+    discountedPrice: 18849,
+    price: 16499,
     rating: { rate: 4.6, count: 400 },
     title: "OPPO Find X5 5G 8Gb 256GB Black ",
   },
@@ -154,8 +154,8 @@ MediaTek Helio G99 processor
       "https://smhttp-ssl-73217.nexcesscdn.net/pub/media/catalog/product/cache/d33f1c152d6eb7e8608a208d80f21a14/z/u/zu302-edited.jpg",
       "https://smhttp-ssl-73217.nexcesscdn.net/pub/media/catalog/product/cache/d33f1c152d6eb7e8608a208d80f21a14/z/u/zu302.jpg",
     ],
-    discountedPrice: 59.499,
-    price: 50.999,
+    discountedPrice: 59499,
+    price: 50999,
     rating: { rate: 4.6, count: 400 },
     title: `Asus TUF Dash F15 FX517ZR - F15173070 Intel® Core™™ i7-12650H - 16GB - 512GB SSD - NVIDIA® GeForce RTX™3070 8GB - 15.6"FHD - Win11 - Black`,
   },
@@ -180,8 +180,8 @@ MediaTek Helio G99 processor
       "https://m.media-amazon.com/images/I/31o7OsfnVFL._AC_.jpg",
       "https://m.media-amazon.com/images/I/31CY5l-ikkL._AC_.jpg",
     ],
-    discountedPrice: 59.499,
-    price: 50.999,
+    discountedPrice: 59499,
+    price: 50999,
     rating: { rate: 4.1, count: 400 },
     title: `Lenovo ThinkPad E14 - Intel® Core™ i5-1235U - 8GB - 512GB SSD - NVIDIA® GeForce MX550 2GB - 14" FHD - Black`,
   },
@@ -203,8 +203,8 @@ Color: Black
     image: [
       "https://smhttp-ssl-73217.nexcesscdn.net/pub/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/z/u/zu389-min.jpg",
     ],
-    discountedPrice: 56.399,
-    price: 49.999,
+    discountedPrice: 56399,
+    price: 49999,
     rating: { rate: 4.5, count: 400 },
     title: `Asus ROG Flow X13 GV301RE-LJ118W - R7-6800HS - NVIDIA® GeForce RTX 3050 Ti - 13.4'' FHD - 16GB - 512GB SSD - Win 11 - Black`,
   },
@@ -227,8 +227,8 @@ Color: Black
       "https://m.media-amazon.com/images/I/41tAuZOwZgL._AC_.jpg",
       "https://m.media-amazon.com/images/I/51K-xQ6wpoL._AC_.jpg",
     ],
-    discountedPrice: 58.199,
-    price: 50.999,
+    discountedPrice: 58199,
+    price: 50999,
     rating: { rate: 4, count: 400 },
     title: `Asus ROG Zephyrus G14 GA401QM-K2012T - AMD Ryzen™ 9-5900HS - 16GB - 1TB SSD - NVIDIA® GeForce RTX 3060 - 14.0'' WQHD - Win 10 - Eclipse Gray `,
   },
@@ -252,8 +252,8 @@ Color: Stin Grey
       "https://smhttp-ssl-73217.nexcesscdn.net/pub/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/z/l/zl900-dove-3-2b-min.jpg",
       "https://smhttp-ssl-73217.nexcesscdn.net/pub/media/catalog/product/cache/661473ab953cdcdf4c3b607144109b90/z/l/zl900-dove-2-2b-min.jpg",
     ],
-    discountedPrice: 51.299,
-    price: 45.699,
+    discountedPrice: 51299,
+    price: 45699,
     rating: { rate: 4.5, count: 400 },
     title: `Lenovo Legion 5 Pro 16ITH6 - Intel® Core™ i7-11800H - 16GB - 1TB SSD - NVIDIA® GeForce® RTX™ 3050 Ti 4GB - 16" WQXGA - Stin Grey `,
   },
@@ -274,8 +274,8 @@ Color: Black
     image: [
       "https://smhttp-ssl-73217.nexcesscdn.net/pub/media/catalog/product/cache/d33f1c152d6eb7e8608a208d80f21a14/z/h/zh399-1-2b-1.jpg",
     ],
-    discountedPrice: 15.999,
-    price: 13.999,
+    discountedPrice: 15999,
+    price: 13999,
     rating: { rate: 3.4, count: 400 },
     title: `HP 15s-eq1001ne - AMD Ryzen 3-3250U - 4 GB - 256 GB SSD - AMD Radeon Integrated Graphics -15.6" HD - Win11- Black`,
   },
@@ -296,7 +296,7 @@ Color: Black
       "https://contents.mediadecathlon.com/p2073131/k$fc750e2198ae4260f51a0544946a2584/fitness-hoodie-with-kangaroo-pocket-grey-pattern.jpg?format=auto&quality=40&f=800x800",
     ],
     discountedPrice: "",
-    price: 299.0,
+    price: 299,
     rating: { rate: 3.4, count: 400 },
     title: `DOMYOS`,
   },
@@ -316,7 +316,7 @@ Color: Black
       "https://contents.mediadecathlon.com/p1974265/k$3008068a31ce07746d8e48806aa780dd/-run-dry-.jpg?format=auto&quality=40&f=800x800",
     ],
     discountedPrice: "",
-    price: 199.0,
+    price: 199,
     rating: { rate: 4, count: 400 },
     title: `KALENJI`,
   },
@@ -336,7 +336,7 @@ Color: Black
       "https://m.media-amazon.com/images/I/71C1agAwEYL._AC_SY741_.jpg",
     ],
     discountedPrice: "",
-    price: 380.0,
+    price: 380,
     rating: { rate: 3.4, count: 400 },
     title: `KALENJI`,
   },
@@ -357,7 +357,7 @@ Color: Black
       "https://m.media-amazon.com/images/I/51OTU5Lu5hL._AC_SX679_.jpg",
     ],
     discountedPrice: "",
-    price: 380.0,
+    price: 380,
     rating: { rate: 3.4, count: 400 },
     title: `ASINAIDI`,
   },
@@ -378,7 +378,7 @@ Color: Black
       "https://m.media-amazon.com/images/I/71RrLETTteL._AC_SX679_.jpg",
     ],
     discountedPrice: "",
-    price: 1.25,
+    price: 125,
     rating: { rate: 4, count: 400 },
     title: `RUICK`,
   },
@@ -490,6 +490,9 @@ export const loadProducts = async function () {
 
   // console.log(data);
   // console.log(data[0]);
+  Products = data;
+  Products.push(...products);
+
   data.forEach((element) => {
     element.wished = false;
     wishList.some((id) => {
@@ -498,8 +501,7 @@ export const loadProducts = async function () {
       }
     });
   });
-  Products = data;
-  Products.push(...products);
+
   console.log(data);
   console.log(Products);
 
@@ -854,13 +856,14 @@ const presistWishList = function () {
 };
 
 export const addToWishlist = function (id) {
-  wishList.push(id);
   console.log(wishList);
   const wishedItem = Products.find((el) => el.id === id);
+  wishList.push(wishedItem.id);
   // wishedItem.dataset.wished = true;
   console.log(wishedItem);
   wishedItem.wished = true;
   presistWishList();
+  console.log(wishList);
 };
 export const deleteWishList = function (id) {
   // DELETE bookmark
@@ -875,4 +878,5 @@ export const deleteWishList = function (id) {
   console.log(wishedItem);
   wishedItem.wished = false;
   presistWishList();
+  console.log(wishList);
 };

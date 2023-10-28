@@ -4,6 +4,7 @@ import * as sliderView from "./views/sliderView.js";
 import productView from "./views/productView.js";
 import searchView from "./views/searchView.js";
 import sortView from "./views/sortView.js";
+// import selectedProView from "./views/selectedProView.js";
 
 const controlInitProducts = async function () {
   try {
@@ -305,3 +306,286 @@ const controlWishList = function (id) {
 };
 
 productView.addToWishListHandler(controlWishList);
+
+const controlSelectedProduct = function () {
+  const pro = model.Products.find((el) => el.id === productView.curProduct);
+  console.log(pro, "PRO PRO");
+  selectedProView.render(pro);
+};
+
+// selectedProView.addToWishListHandler(controlSelectedProduct);
+const productsContainer = document.querySelector(".products-list");
+
+const perentElement = document.querySelector(".layout-fade");
+const selectedProductContainer =
+  perentElement.querySelector(".selected-product");
+const imgContainer = perentElement.querySelector(".images-container");
+
+const slides = imgContainer.querySelectorAll(".images-container img");
+const dotsContainer = document.querySelector(".dots");
+let curSlide = 0;
+// const maxSlides = slides.length;
+
+const checkImages = function (data) {
+  if (Array.isArray(data.image)) {
+    return data.image
+      .map((el, i) => {
+        console.log(el);
+        return `<img class="img${i}" src="${el}" alt="image">`;
+      })
+      .join("");
+  } else {
+    return `<img src="${data.image}" alt="image">`;
+  }
+};
+
+const clear = () => {
+  selectedProductContainer.innerHTML = "";
+};
+
+const CreateDots = function (objImg) {
+  if (Array.isArray(objImg.image)) {
+    return objImg.image
+
+      .map((el, i) => {
+        return `    <div class="dot dot--active" data-slide="${i}">
+       <img src="${el}" alt="el.title"> 
+   </div>`;
+      })
+      .join("");
+  } else {
+    return `    <div class="dot dot--active" data-slide="0">
+    <img src="${objImg.image}" alt="el.title"> 
+</div>`;
+  }
+};
+
+const activeDot = function (slide) {
+  document
+    .querySelectorAll(".dot")
+    .forEach((el) => el.classList.remove("dot--active"));
+
+  document
+    .querySelector(`.dot[data-slide="${slide}"]`)
+    .classList.add("dot--active");
+};
+
+const goToNextSlide = function (slidess, slide) {
+  slidess.forEach((el, i) => {
+    el.style.transform = `translateX(${100 * (i - slide)}%)`;
+  });
+};
+
+const starting = function (slides) {
+  // CreateDots();
+  activeDot(0);
+  goToNextSlide(slides, 0);
+  // autoSlide = waitFiveSecondAndthenStart();
+};
+
+// starting();
+
+const nextSlide = function (sildess, maxSlides) {
+  if (curSlide === maxSlides - 1) {
+    curSlide = 0;
+  } else {
+    curSlide++;
+  }
+  goToNextSlide(sildess, curSlide);
+  activeDot(curSlide);
+};
+
+const prevSlide = function (sildess, maxSlides) {
+  if (curSlide === 0) {
+    curSlide = maxSlides - 1;
+  } else {
+    curSlide--;
+  }
+  goToNextSlide(sildess, curSlide);
+  activeDot(curSlide);
+};
+
+/// listner for the product preview
+let maxSlide;
+let allImg;
+productsContainer.addEventListener("click", (e) => {
+  const img = e.target.closest(".img-container");
+  const title = e.target.closest(".item-title");
+
+  if (img || title) {
+    const curProductID = +e.target.closest(".product-item").dataset.id;
+    const currentProduct = model.Products.find((el) => el.id === curProductID);
+    console.log(currentProduct);
+    clear();
+
+    selectedProductContainer.insertAdjacentHTML(
+      "afterbegin",
+      generateMarkUp(currentProduct)
+    );
+    allImg = document.querySelectorAll(".images-container img");
+    maxSlide = allImg.length;
+    starting(allImg);
+
+    perentElement.classList.add("show-product");
+    document.body.style.overflowY = "hidden";
+  }
+});
+
+perentElement.addEventListener("click", (e) => {
+  if (
+    e.target.classList.contains("close-btn") ||
+    e.target.classList.contains("layout-fade")
+  ) {
+    console.log("working1");
+    document.body.style.overflowY = "scroll";
+    perentElement.classList.remove("show-product");
+    console.log("workign2");
+  }
+
+  const rightBtn = e.target.closest(".arrow-right");
+  const leftBtn = e.target.closest(".arrow-left");
+  const dot = e.target.closest(".dot");
+  if (rightBtn) nextSlide(allImg, maxSlide);
+  if (leftBtn) prevSlide(allImg, maxSlide);
+  if (dot) goToNextSlide(allImg, +dot.dataset.slide);
+});
+
+const checkIfClothing = function (obj) {
+  const catetitle = !Array.isArray(obj.category) ? obj.category.split(" ") : "";
+  if (
+    obj.generalCategory == "clothing" ||
+    catetitle.some((el) => el === "clothing")
+  ) {
+    return `     <div class="sizes" >
+    <h3>SIZES</h3>
+    <div class="size-containers" >
+
+      <span data-size="xs" class="size-unit optians-btn" >XS</span>
+      <span data-size="s" class="size-unit optians-btn btn--active" >S</span>
+      <span data-size="m" class="size-unit optians-btn" >M</span>
+      <span data-size="l" class="size-unit optians-btn" >L</span>
+      <span data-size="xl" class="size-unit optians-btn" >XL</span>
+    </div>
+   </div>`;
+  } else {
+    return "";
+  }
+};
+let bb = "1word";
+console.log(bb.split(" "), "YOU ARE LOOKING FOR ME");
+
+const cheackIfArray = function (Obj) {
+  if (
+    (Array.isArray(Obj.image) && Obj.image.length == 1) ||
+    !Array.isArray(Obj.image)
+  ) {
+    return "";
+  }
+  if (Array.isArray(Obj.image)) {
+    return `    <div class="arrow arrow-right" ><i class="fa-solid fa-arrow-right-long"></i></div>
+ <div class="arrow arrow-left" ><i class="fa-solid fa-arrow-left-long"></i></div>`;
+  }
+};
+
+const generateMarkUp = function (productOBJ) {
+  return `
+  <div  data-id ="${productOBJ.id}" class="left-side">
+  <i class="fa-solid fa-xmark close-btn"></i>
+  <div class="product-preview">
+    <div class="images-container" >
+    ${checkImages(productOBJ)}
+   ${cheackIfArray(productOBJ)}
+    </div>
+
+
+    <div class="dots">
+
+       ${CreateDots(productOBJ)}
+
+    </div>
+  </div>
+
+
+<div class="product-detials" >
+   <h2 class="product-title" >${productOBJ.title}</h2>
+   <div class="prices-rating" > 
+    <div class="prices">
+      <del class="discount">${
+        productOBJ.discountedPrice ? `$${productOBJ.discountedPrice}` : ""
+      }</del> <span class="${
+    productOBJ.discountedPrice ? "price" : "only-price"
+  }" >$${productOBJ.price}</span>
+  
+    </div>
+  
+    <div class="rating-stars" >
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="rating-count" >${productOBJ.rating.count}</span>
+     </div>
+  
+  </div>
+    <p class="discreption" >${productOBJ.description}.</p>
+
+     ${checkIfClothing(productOBJ)}
+
+     <div class="add-cart add-wish" >
+        <span class="add-cart__btn optians-btn btn--active" >ADD TO CART</span>
+      
+        <div class="count--wish" >
+          <div class="amount-purchsed">
+            <div class="arrows up-arrow" > <i class="fa-solid fa-sort-up"></i></div>
+            <div class="amout" >1</div>
+            <div class=" arrows down-arrow" ><i class="fa-solid fa-sort-down"></i></div>
+         </div>
+ 
+         <span class="wish-logo"  title="add to wishlist"> <i class="fa-${
+           productOBJ.wished ? "solid" : "regular"
+         } fa-heart"></i></span>
+        </div>
+      
+     </div>
+     <div class="delivery">
+       <span >
+        <i class="fa-solid fa-truck"></i>
+       </span>
+       <span class="fonts">Free delivery on orders over $30.0</span>
+     </div>
+     <div class="detials" >
+        <h3 class="det-title" >CHARACTERISTICS</h3>
+        <div class="del-section brand" >
+          <span class="tag" >Brand</span>
+          <span class="value" >Pinko</span>
+        </div>
+ 
+        <div class="del-section collection" >
+          <span class="tag" >Brand</span>
+          <span class="value" >Pinko</span>
+        </div>
+
+        <div class="del-section item-no" >
+          <span class="tag" >item no.</span>
+          <span class="value" >21</span>
+        </div>
+
+        <div class="del-section matrial" >
+          <span class="tag" >Brand</span>
+          <span class="value" >Pinko</span>
+        </div>
+
+        <div class="brand" >
+          <span class="tag" >Care recommendations</span>
+          <span class="value" >machine wash</span>
+        </div>
+     </div>
+   
+
+
+   </div>
+</div>
+ 
+ `;
+};

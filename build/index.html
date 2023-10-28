@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Catzu</title>
+    <link rel="shortcut icon" href="img/logo-2.png" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/44fb2704eb.js" crossorigin="anonymous"></script>
    <script type="module"  defer src="js/controller.js"></script>
 
@@ -134,12 +136,12 @@
       <ul data-slides>
 
         <li class="slide" data-active>
-          <img src="https://source.unsplash.com/78A265wPiO4" alt="Nature Image #1">
+          <img src="img/CheezIt_Teaser1_Still.png" alt="Nature Image #1">
         </li>
 
 
         <li class="slide">
-          <img src="https://source.unsplash.com/eOpewngf68w" alt="Nature Image #2">
+          <img src="img/grocoriesCategory.jpg" alt="Nature Image #2">
         </li>
 
         <li class="slide">
@@ -617,6 +619,7 @@
       <span>Page 3</span>
       <i  class="fa-solid fa-angle-right page-right"></i>
     </button>
+
   </div>
  </section>
 
@@ -639,11 +642,150 @@
   <img src="./img/1200px-Plus_symbol.svg.png" alt="">
 </div> -->
 
-<div class="selected-product" >
-    <div class="images">
+<div class="layout-fade" >
+
+  <div data-id="1" class="selected-product" >
+ 
+
+ <div class="left-side">
+  <i class="fa-solid fa-xmark close-btn"></i>
+  <div class="product-preview">
+    <div class="images-container" >
+      <img src="img/42b1b57f6c04737a85b545f06076ee0fCategory .jpg" alt="image">
+      <img src="img/42b1b57f6c04737a85b545f06076ee0fCategory .jpg" alt="image">
+      <img src="img/42b1b57f6c04737a85b545f06076ee0fCategory .jpg" alt="image">
+      <div class="arrow arrow-right" ><i class="fa-solid fa-arrow-right-long"></i></div>
+      <div class="arrow arrow-left" ><i class="fa-solid fa-arrow-left-long"></i></div>
+    </div>
+
+
+    <div class="dots">
+
+        <div class="dot dot--active" data-slide="">
+            <img src="img/42b1b57f6c04737a85b545f06076ee0fCategory .jpg" alt="el.title"> 
+        </div>
+
+        <div class="dot dot--active" data-slide="">
+          <img src="img/42b1b57f6c04737a85b545f06076ee0fCategory .jpg" alt="el.title"> 
+      </div>
+
+      <div class="dot dot--active" data-slide="">
+        <img src="img/42b1b57f6c04737a85b545f06076ee0fCategory .jpg" alt="el.title"> 
+    </div>
+
+
+    <div class="dot dot--active" data-slide="">
+      <img src="img/42b1b57f6c04737a85b545f06076ee0fCategory .jpg" alt="el.title"> 
+  </div>
+
+  <div class="dot dot--active" data-slide="">
+    <img src="img/42b1b57f6c04737a85b545f06076ee0fCategory .jpg" alt="el.title"> 
+</div>
+
+<div class="dot dot--active" data-slide="">
+  <img src="img/42b1b57f6c04737a85b545f06076ee0fCategory .jpg" alt="el.title"> 
+</div>
+
 
     </div>
+
+  </div>
+
+
+<div class="product-detials" >
+   <h2 class="product-title" >Men's Crew Fitness Hoodie 100</h2>
+   <div class="prices-rating" > 
+    <div class="prices">
+      <del class="discount">$290</del> <span class="price" >$190</span>
+  
+    </div>
+  
+    <div class="rating-stars" >
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="rating-count" >300</span>
+     </div>
+  
+  </div>
+    <p class="discreption" >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, ducimus cumque! Nam, sapiente. Qui aliquid, illum molestiae, minima enim libero perferendis facere commodi eveniet eligendi sunt mollitia, recusandae esse expedita.</p>
+
+     <div class="sizes" >
+      <h3>SIZES</h3>
+      <div class="size-containers" >
+
+        <span data-size="xs" class="size-unit optians-btn" >XS</span>
+        <span data-size="s" class="size-unit optians-btn btn--active" >S</span>
+        <span data-size="m" class="size-unit optians-btn" >M</span>
+        <span data-size="l" class="size-unit optians-btn" >L</span>
+        <span data-size="xl" class="size-unit optians-btn" >XL</span>
+      </div>
+     </div>
+
+     <div class="add-cart add-wish" >
+        <span class="add-cart__btn optians-btn btn--active" >ADD TO CART</span>
+      
+        <div class="count--wish" >
+          <div class="amount-purchsed">
+            <div class="arrows up-arrow" > <i class="fa-solid fa-sort-up"></i></div>
+            <div class="amout" >1</div>
+            <div class=" arrows down-arrow" ><i class="fa-solid fa-sort-down"></i></div>
+         </div>
+ 
+         <span class="wish-logo"  title="add to wishlist"> <i class="fa-regular fa-heart"></i></span>
+        </div>
+      
+     </div>
+     <div class="delivery">
+       <span >
+        <i class="fa-solid fa-truck"></i>
+       </span>
+       <span class="fonts">Free delivery on orders over $30.0</span>
+     </div>
+     <div class="detials" >
+        <h3 class="det-title" >CHARACTERISTICS</h3>
+        <div class="del-section brand" >
+          <span class="tag" >Brand</span>
+          <span class="value" >Pinko</span>
+        </div>
+ 
+        <div class="del-section collection" >
+          <span class="tag" >Brand</span>
+          <span class="value" >Pinko</span>
+        </div>
+
+        <div class="del-section item-no" >
+          <span class="tag" >item no.</span>
+          <span class="value" >21</span>
+        </div>
+
+        <div class="del-section matrial" >
+          <span class="tag" >Brand</span>
+          <span class="value" >Pinko</span>
+        </div>
+
+        <div class="brand" >
+          <span class="tag" >Care recommendations</span>
+          <span class="value" >machine wash</span>
+        </div>
+     </div>
+   
+
+
+   </div>
 </div>
+
+
+ </div>
+
+
+
+</div> 
+
+
+
 
 </body>
 </html>
