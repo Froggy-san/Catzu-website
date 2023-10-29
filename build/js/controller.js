@@ -195,7 +195,7 @@ const addOnSearch = function (searchQuery) {
   });
 };
 // addOnSearch("electronics");
-const falsyTruthy = function (min, max) {
+const getMaxAmout = function (min, max) {
   if (min === 0 && max === 50) {
     return !model.filtedPriceRange1;
   }
@@ -246,7 +246,7 @@ filterContainer.addEventListener("click", (e) => {
     model.filterByPrice(
       parseInt(btn.dataset.from),
       1000000,
-      falsyTruthy(btn.dataset.from, btn.dataset.to)
+      getMaxAmout(btn.dataset.from, btn.dataset.to)
     );
     toggle(btn, allFilterRange, "filter-range");
     productView.render(model.filtedResults);
@@ -257,7 +257,7 @@ filterContainer.addEventListener("click", (e) => {
     model.filterByPrice(
       currAmount[0],
       currAmount[1],
-      falsyTruthy(currAmount[0], currAmount[1])
+      getMaxAmout(currAmount[0], currAmount[1])
     );
     toggle(btn, allFilterRange, "filter-range");
     productView.render(model.filtedResults);
@@ -330,7 +330,6 @@ const checkImages = function (data) {
   if (Array.isArray(data.image)) {
     return data.image
       .map((el, i) => {
-        console.log(el);
         return `<img class="img${i}" src="${el}" alt="image">`;
       })
       .join("");
@@ -349,13 +348,13 @@ const CreateDots = function (objImg) {
 
       .map((el, i) => {
         return `    <div class="dot dot--active" data-slide="${i}">
-       <img src="${el}" alt="el.title"> 
+       <img src="${el}" alt="${objImg.title}"> 
    </div>`;
       })
       .join("");
   } else {
     return `    <div class="dot dot--active" data-slide="0">
-    <img src="${objImg.image}" alt="el.title"> 
+    <img src="${objImg.image}" alt="${objImg.title}"> 
 </div>`;
   }
 };
@@ -447,6 +446,14 @@ perentElement.addEventListener("click", (e) => {
   const leftBtn = e.target.closest(".arrow-left");
   const dot = e.target.closest(".dot");
   const wishBtn = e.target.closest(".wish-logo");
+  const allSizeBtns = document.querySelectorAll(".size-unit");
+  const sizeBtn = e.target.closest(".size-unit");
+  const amount = document.querySelector(".amout");
+  const incBtn = e.target.closest(".up-arrow");
+  const decBtn = e.target.closest(".down-arrow");
+  if (incBtn) ++amount.textContent;
+  if (decBtn) amount.textContent !== "0" ? --amount.textContent : "";
+  if (sizeBtn) toggle2(sizeBtn, allSizeBtns);
   if (rightBtn) nextSlide(allImg, maxSlide);
   if (leftBtn) prevSlide(allImg, maxSlide);
   if (dot) goToNextSlide(allImg, +dot.dataset.slide);
@@ -482,8 +489,20 @@ const checkIfClothing = function (obj) {
     return "";
   }
 };
-let bb = "1word";
-console.log(bb.split(" "), "YOU ARE LOOKING FOR ME");
+
+const checkIfClothing2 = function (obj, categoryName, word1, word2) {
+  const catetitle = !Array.isArray(obj.category) ? obj.category.split(" ") : "";
+  if (
+    (catetitle && catetitle.some((el) => el === categoryName)) ||
+    obj.generalCategory === categoryName
+  ) {
+    return word1;
+  } else {
+    return word2;
+  }
+};
+let bb = "1word 2word 3 word";
+console.log(bb.split(" ")[1], "YOU ARE LOOKING FOR ME");
 
 const cheackIfArray = function (Obj) {
   if (
@@ -497,6 +516,110 @@ const cheackIfArray = function (Obj) {
  <div class="arrow arrow-left" ><i class="fa-solid fa-arrow-left-long"></i></div>`;
   }
 };
+
+function getRandomYear() {
+  // Set the minimum and maximum year values
+  var min = 2001;
+  var max = 2023;
+
+  // Generate a random number between min and max, inclusive
+  var random = Math.floor(Math.random() * (max - min + 1)) + min;
+
+  // Return the random year
+  return random;
+}
+
+function calcRating(obj) {
+  if (obj.rating.rate === 0) {
+    return `
+    <div class="rating-stars" >
+      <span class="fa fa-star "></span>
+      <span class="fa fa-star "></span>
+      <span class="fa fa-star "></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="rating-count" >${obj.rating.count}</span>
+     </div>
+  
+  </div>
+    `;
+  }
+
+  if (obj.rating.rate <= 1) {
+    return `
+    <div class="rating-stars " >
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star "></span>
+      <span class="fa fa-star "></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="rating-count" >${obj.rating.count}</span>
+     </div>
+  
+  </div>
+    `;
+  }
+
+  if (obj.rating.rate <= 2) {
+    return `
+    <div class="rating-stars " >
+      <span class="fa fa-star  checked"></span>
+      <span class="fa fa-star  checked"></span>
+      <span class="fa fa-star "></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="rating-count" >${obj.rating.count}</span>
+     </div>
+  
+  </div>
+    `;
+  }
+
+  if (obj.rating.rate <= 3) {
+    return `
+  <div class="rating-stars " >
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star  checked"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+    <span class="rating-count" >${obj.rating.count}</span>
+   </div>
+
+</div>
+  `;
+  }
+
+  if (obj.rating.rate <= 4) {
+    return `
+  <div class="rating-stars" >
+    <span class="fa fa-star  checked "></span>
+    <span class="fa fa-star  checked"></span>
+    <span class="fa fa-star  checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <span class="rating-count" >${obj.rating.count}</span>
+   </div>
+
+</div>
+  `;
+  }
+
+  if (obj.rating.rate <= 5) {
+    return `
+  <div class="rating-stars" >
+    <span class="fa fa-star checked "></span>
+    <span class="fa fa-star  checked"></span>
+    <span class="fa fa-star checked "></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star" checked></span>
+    <span class="rating-count" >${obj.rating.count}</span>
+   </div>
+
+</div>
+  `;
+  }
+}
 
 const generateMarkUp = function (productOBJ) {
   return `
@@ -529,16 +652,7 @@ const generateMarkUp = function (productOBJ) {
   
     </div>
   
-    <div class="rating-stars" >
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span>
-      <span class="rating-count" >${productOBJ.rating.count}</span>
-     </div>
-  
-  </div>
+    ${calcRating(productOBJ)}
     <p class="discreption" >${productOBJ.description}.</p>
 
      ${checkIfClothing(productOBJ)}
@@ -569,27 +683,37 @@ const generateMarkUp = function (productOBJ) {
         <h3 class="det-title" >CHARACTERISTICS</h3>
         <div class="del-section brand" >
           <span class="tag" >Brand</span>
-          <span class="value" >Pinko</span>
+          <span class="value" >${productOBJ.title.split(" ")[0]}</span>
         </div>
  
         <div class="del-section collection" >
-          <span class="tag" >Brand</span>
-          <span class="value" >Pinko</span>
+          <span class="tag" >Collection</span>
+          <span class="value" >${getRandomYear()}</span>
         </div>
 
         <div class="del-section item-no" >
           <span class="tag" >item no.</span>
-          <span class="value" >21</span>
+          <span class="value" >${productOBJ.id}</span>
         </div>
 
-        <div class="del-section matrial" >
-          <span class="tag" >Brand</span>
-          <span class="value" >Pinko</span>
+        <div class="del-section warranty" >
+          <span class="tag" >warranty</span>
+          <span class="value" >${checkIfClothing2(
+            productOBJ,
+            "electronics",
+            "2 years",
+            "unset"
+          )}</span>
         </div>
 
         <div class="brand" >
           <span class="tag" >Care recommendations</span>
-          <span class="value" >machine wash</span>
+          <span class="value" >${checkIfClothing2(
+            productOBJ,
+            "clothing",
+            "wash machine",
+            "refer to warranty"
+          )}</span>
         </div>
      </div>
    

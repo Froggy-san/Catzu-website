@@ -14,7 +14,7 @@
 /************ for firefox ***************/
 @supports (scrollbar-color: pink blue) {
   * {
-    scrollbar-color: var(--p-color) var(--color-bright);
+    scrollbar-color: #464647;
     scrollbar-width: thin;
   }
 }
@@ -202,10 +202,25 @@ ul {
   color: #464647;
 }
 .filter-sort .sort-by, .filter-sort .filter-by {
+  position: relative;
   color: white;
   background-color: #464647;
 }
-
+.filter-sort .sort-by::after, .filter-sort .filter-by::after {
+  content: "";
+  position: absolute;
+  width: 1.6% ;
+  height: 85%;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #464647;
+}
+.filter-sort .sort-by::after{
+  left: -6px;
+}
+.filter-sort .filter-by::after{
+  right: -6px;
+}
 .products-list {
   display: -ms-grid;
   display: grid;
@@ -1161,7 +1176,7 @@ nav .socials li .bar-top .search-btn {
 
 .carousel {
   width: 100%;
-  height: 85vh;
+  height: 65vh;
   position: relative;
 }
 
@@ -1183,10 +1198,10 @@ nav .socials li .bar-top .search-btn {
   display: block;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
+  /* -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
-     object-position: center;
+     object-position: center; */
 }
 
 .slide[data-active] {
@@ -1197,7 +1212,7 @@ nav .socials li .bar-top .search-btn {
   position: absolute;
   background: none;
   border: none;
-  font-size: 4rem;
+  font-size: 2.4rem;
   top: 50%;
   z-index: 2;
   -webkit-transform: translateY(-50%);
@@ -1229,6 +1244,44 @@ nav .socials li .bar-top .search-btn {
 }
 
 @media (min-width: 768px) {
+
+
+
+
+  .galary {
+    margin-top: 1%;
+  }
+  
+  .carousel {
+    border-radius: .5rem;
+    /* width: 95%; */
+    margin-inline: auto;
+    height: 86vh;
+    position: relative;
+  }
+  
+
+  
+  .slide > img {
+    display: block;
+    border-radius: .5rem;
+
+   
+  }
+  
+ 
+  
+  .carousel-button {
+
+    font-size: 3.5rem;
+ 
+  }
+
+
+
+
+
+
   .category-title__sort h1 {
     font-size: 5rem;
   }
@@ -1387,6 +1440,15 @@ nav .socials li .bar-top .search-btn {
 }
 
 @media (min-width: 992px) {
+
+  .carousel {
+    border-radius: .5rem;
+    width: 88%;
+    margin-inline: auto;
+    height: 90vh;
+    position: relative;
+  }
+
   .selected-product {
     padding: 6rem 3rem !important;
   }

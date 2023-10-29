@@ -2,24 +2,30 @@ import productView from "./productView.js";
 
 class SearchView {
   _parentEl = document.querySelector(".bar-top");
+  _secondSearchBar = document.querySelector(".bar-bottom");
 
   getQuery() {
-    const query = this._parentEl.querySelector(".search-bar").value;
-    this._clearInput();
+    const query =
+      this._parentEl.querySelector(".search-bar").value ||
+      this._secondSearchBar.querySelector(".search-bar").value;
+    this.clearInput();
     return query;
   }
 
-  _clearInput() {
+  clearInput() {
     this._parentEl.querySelector(".search-bar").value = "";
+    this._secondSearchBar.querySelector(".search-bar").value = "";
   }
   addHandlerSearch(handler) {
-    this._parentEl.addEventListener("submit", function (e) {
-      e.preventDefault();
+    [this._parentEl, this._secondSearchBar].forEach((el) =>
+      el.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-      handler();
+        handler();
 
-      // productView._header.innerHTML = this.getQuery();
-    });
+        // productView._header.innerHTML = this.getQuery();
+      })
+    );
   }
 }
 

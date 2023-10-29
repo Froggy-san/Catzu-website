@@ -28,7 +28,7 @@ const products = [
     ],
     discountedPrice: 222,
     price: 695,
-    rating: { rate: 4.6, count: 400 },
+    rating: { rate: 1, count: 400 },
     title: "Samsung Galaxy A04s 3GB 32GB Black ",
   },
 
@@ -78,7 +78,7 @@ const products = [
     ],
     discountedPrice: 9349,
     price: 8199,
-    rating: { rate: 4.6, count: 400 },
+    rating: { rate: 1.6, count: 400 },
     title: "Xiaomi Redmi 12C 4GB 128GB Gray",
   },
 
@@ -317,7 +317,7 @@ Color: Black
     ],
     discountedPrice: "",
     price: 199,
-    rating: { rate: 4, count: 400 },
+    rating: { rate: 2, count: 400 },
     title: `KALENJI`,
   },
 
@@ -400,7 +400,7 @@ Color: Black
     ],
     discountedPrice: 1200,
     price: 929,
-    rating: { rate: 4, count: 400 },
+    rating: { rate: 5, count: 400 },
     title: `Bixbee`,
   },
 ];
