@@ -9,7 +9,7 @@ class SearchView {
       this._parentEl.querySelector(".search-bar").value ||
       this._secondSearchBar.querySelector(".search-bar").value;
     this.clearInput();
-    return query;
+    return query.toLowerCase();
   }
 
   clearInput() {
