@@ -44,3 +44,26 @@ document.addEventListener("keydown", (e) => {
     toggleSideBar();
   }
 });
+
+const goUp = document.querySelector(".go-up");
+
+const landing = document.querySelector(".galary");
+
+// goUp.addEventListener("click", () => {
+//   document.body.scrollHeight;
+// });
+
+const stickyBtn = function (entries) {
+  const [entry] = entries;
+  // console.log(entry, "HERE!");
+
+  if (!entry.isIntersecting) goUp.classList.remove("hidden");
+  else goUp.classList.add("hidden");
+};
+
+const headerObserver = new IntersectionObserver(stickyBtn, {
+  root: null, // mmsh 3arf
+  threshold: 0, // kam fel % men el target bayn fel shasha
+  // rootMargin: `-${navHight}px`, // abl el threshold b -90px e3mel call ll function
+});
+headerObserver.observe(landing);

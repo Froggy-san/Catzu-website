@@ -15,6 +15,13 @@ class SearchView {
   clearInput() {
     this._parentEl.querySelector(".search-bar").value = "";
     this._secondSearchBar.querySelector(".search-bar").value = "";
+    [
+      this._parentEl.querySelector(".search-bar"),
+      this._secondSearchBar.querySelector(".search-bar"),
+    ].forEach((el) => {
+      el.value = "";
+      el.blur();
+    });
   }
   addHandlerSearch(handler) {
     [this._parentEl, this._secondSearchBar].forEach((el) =>
