@@ -12,16 +12,21 @@ burgerBars.addEventListener("click", () => {
 });
 document.addEventListener("click", (e) => {
   const nothing = e.target.closest(".links");
-  if (e.target === burgerBars) return;
+  const glassLogo = e.target.closest(".glass-show");
+  const z = e.target.closest(".search-bar") || e.target.closest(".search-btn");
+
+  if (e.target === burgerBars || e.target === glassLogo || e.target === z)
+    return;
+
   if (!nothing) toggleSideBar();
+  if (e.target !== glassLogo)
+    searchView.secondSearchBar.classList.remove("appear");
 });
 
 const topSearchBarContanier = document.querySelector(".bar-top");
 const bottomSearchBarContanier = document.querySelector(".bar-bottom");
 const showBottomSearchBar = document.querySelector(".glass-show");
 const topSearchBar = topSearchBarContanier.querySelector(".search-bar");
-console.log(bottomSearchBarContanier);
-console.log(topSearchBar);
 
 topSearchBar.addEventListener("focus", () => {
   topSearchBarContanier.classList.toggle("search-shrink");
@@ -36,6 +41,8 @@ topSearchBar.addEventListener("blur", () => {
 showBottomSearchBar.addEventListener("click", () => {
   searchView.clearInput();
   bottomSearchBarContanier.classList.toggle("appear");
+
+  // bottomSearchBarContanier.querySelector(".search-bar").focus();
 });
 
 document.addEventListener("keydown", (e) => {
@@ -67,3 +74,33 @@ const headerObserver = new IntersectionObserver(stickyBtn, {
   // rootMargin: `-${navHight}px`, // abl el threshold b -90px e3mel call ll function
 });
 headerObserver.observe(landing);
+
+// history.back();
+
+// // Get the element by its id
+// var element = document.querySelector(".layout-fade");
+
+// // Assign a function to the popstate event
+// window.onpopstate = function () {
+//   // Remove the class from the element
+//   element.classList.remove("show-product");
+// };
+
+// var product = document.querySelector(".layout-fade");
+// product.classList.remove("product-show");
+
+window.addEventListener("popstate", function (event) {
+  if (event.state === null) {
+    let product = document.querySelector(".layout-fade");
+    document.body.style.overflowY = "scroll";
+    if (product.classList.contains("show-product")) {
+      product.classList.remove("show-product");
+    }
+  }
+});
+
+history.pushState({}, "");
+
+// window.addEventListener("popstate", function(event) { // check if the user clicked the back button if (event.state === null) { // get the element with id=“product” var product = document.getElementById(“product”); // check if it has a class of “product-show” if (product.classList.contains(“product-show”)) { // remove the class product.classList.remove(“product-show”); } } });
+
+//   // push a dummy state to the history stack history.pushState({}, “”);

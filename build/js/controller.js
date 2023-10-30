@@ -452,7 +452,7 @@ perentElement.addEventListener("click", (e) => {
   const incBtn = e.target.closest(".up-arrow");
   const decBtn = e.target.closest(".down-arrow");
   if (incBtn) ++amount.textContent;
-  if (decBtn) amount.textContent !== "0" ? --amount.textContent : "";
+  if (decBtn) amount.textContent !== "1" ? --amount.textContent : "";
   if (sizeBtn) toggle2(sizeBtn, allSizeBtns);
   if (rightBtn) nextSlide(allImg, maxSlide);
   if (leftBtn) prevSlide(allImg, maxSlide);

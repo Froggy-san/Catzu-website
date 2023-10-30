@@ -1250,7 +1250,9 @@ nav .socials li .bar-top .search-btn {
 
 @media (min-width: 768px) {
 
-
+.socials{
+  column-gap: 0px !important;
+}
 
 
   .galary {
