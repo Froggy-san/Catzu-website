@@ -4,6 +4,7 @@ import * as sliderView from "./views/sliderView.js";
 import productView from "./views/productView.js";
 import searchView from "./views/searchView.js";
 import sortView from "./views/sortView.js";
+// import  from "./views/.js";
 // import selectedProView from "./views/selectedProView.js";
 
 const controlInitProducts = async function () {
@@ -33,7 +34,7 @@ const controlSearch = async function () {
     // model.clear();
     model.restSorting();
     model.restFilterArray();
-    sortView.removeActive();
+
     removeActive(allFilterRange);
     // model.cl();
     console.log(model.results, "here!! 2222");
@@ -49,9 +50,9 @@ const controlSearch = async function () {
 };
 // console.log("here");
 // const controlSorting = async function () {
-//   // const result2 =  model.sortBy(model.results, sortView.sortingBy, model.sorted);
+//   // const result2 =  model.sortBy(model.results, .sortingBy, model.sorted);
 //   // console.log(result2);
-//   if (sortView.sortingBy == "price") {
+//   if (.sortingBy == "price") {
 //     let x = model.sortP(!model.sorted);
 //     console.log(x);
 //   }
@@ -76,26 +77,24 @@ const controlSearch = async function () {
 //   );
 //   //console.log(this.sortingBy);
 // });
-
+const list = document.querySelector(".products-list");
 const type = function (sortingBy) {
   if (sortingBy === "price") {
-    return !model.sortedP;
+    list.classList.remove("layout-row");
   } else if (sortingBy === "title") {
-    return !model.sortedT;
-  } else if (sortingBy === "rating") {
-    return !model.sortedR;
+    list.classList.add("layout-row");
   }
 };
 const controlSorting = function (sortingBy) {
   console.log(sortingBy);
+  type(sortingBy);
+  // model.sorting(sortingBy, type(sortingBy));
 
-  model.sorting(sortingBy, type(sortingBy));
-
-  productView.render(model.sortedResults);
+  // productView.render(model.sortedResults);
 };
 controlInitProducts();
-searchView.addHandlerSearch(controlSearch);
 sortView.addEventHandler(controlSorting);
+searchView.addHandlerSearch(controlSearch);
 
 //
 //
@@ -117,7 +116,7 @@ const toggleFunc = function () {
   }
 };
 
-// sortView.addEventHandler(controlSorting);
+// .addEventHandler(controlSorting);
 
 // _perentElement.addEventListener("click", function (e) {
 //   const btn = e.target.closest(".sort-op");
@@ -163,7 +162,6 @@ const toggle = function (btn, selectedBtns, className) {
 };
 const removeActive = (btn) => {
   btn.forEach((btn) => btn.classList.remove("btn--active"));
-  sortView.removeActive();
 };
 const toggle2 = function (btn, selectedBtns) {
   removeActive(selectedBtns);
@@ -209,62 +207,6 @@ const getMaxAmout = function (min, max) {
     return !model.filtedPriceRange4;
   }
 };
-const filterContainer = document.querySelector(".filter");
-console.log(filterContainer);
-filterContainer.addEventListener("click", (e) => {
-  const btn = e.target.closest(".filter-op");
-  if (!btn) return;
-
-  if (btn.dataset.query) {
-    console.log(btn.dataset.query);
-    if (btn.dataset.query === "Variety") {
-      productView.render(model.Products);
-      model.restFilters();
-      model.restSorting();
-      model.restFilterArray();
-      model.restResultsArray();
-      productView.changeTitle(btn.dataset.query);
-    } else {
-      model.loadSearchResults(model.Products, btn.dataset.query);
-      console.log(model.results, "here!!!!!!");
-      console.log(model.Products, "Products!!!!");
-      productView.render(model.results);
-      model.restFilters();
-      model.restSorting();
-      model.restFilterArray();
-      productView.changeTitle(btn.dataset.query);
-      model.loadSearchResults(model.Products, btn.dataset.query);
-      productView.render(model.results);
-    }
-    toggle2(btn, allFilterSec);
-    removeActive(allFilterRange);
-  }
-
-  if (btn.dataset.from) {
-    console.log(parseInt(btn.dataset.from), btn.dataset.to);
-
-    model.filterByPrice(
-      parseInt(btn.dataset.from),
-      1000000,
-      getMaxAmout(btn.dataset.from, btn.dataset.to)
-    );
-    toggle(btn, allFilterRange, "filter-range");
-    productView.render(model.filtedResults);
-  }
-  if (btn.dataset.amount) {
-    const currAmount = JSON.parse(btn.dataset.amount);
-    console.log(currAmount);
-    model.filterByPrice(
-      currAmount[0],
-      currAmount[1],
-      getMaxAmout(currAmount[0], currAmount[1])
-    );
-    toggle(btn, allFilterRange, "filter-range");
-    productView.render(model.filtedResults);
-  }
-
-  console.log(model.filtedResults);
-});
 
 // export const getSearchResultsPage = function (page = state.search.page) {
 //   state.search.page = page;
@@ -669,7 +611,7 @@ const generateMarkUp = function (productOBJ) {
  
          <span class="wish-logo"  title="add to wishlist"> <i class="fa-${
            productOBJ.wished ? "solid" : "regular"
-         } fa-heart"></i></span>
+         } fa-bookmark"></i></span>
         </div>
       
      </div>

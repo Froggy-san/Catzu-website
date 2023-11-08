@@ -75,17 +75,18 @@ class ProductView extends View {
       <div class="img-container" >
         <img  src="${result.image}">
       </div>
-        <p class="item-title" >${result.title}</p>
-        <div class="rating" data-rate="" >${result.rating.rate}/5</div>
-        <div class="praice-discount">
-               <div class="price" >
-                <del class="discount">£E${result.discountedPrice}.00</del>
-                <span class="price" >£E${result.price}.00</span>
-               </div>
-               <span class="wish-logo" > <i class="fa-${
-                 result.wished ? "solid" : "regular"
-               } fa-heart"></i></span>  
-          </div>
+    <div class ="div-card">
+    <p class="item-title" >${result.title}</p>
+    <div class="rating" data-rate="" > <i class="fa-solid fa-book-open-reader"></i> ${
+      result.rating.rate
+    }/5</div>
+    <div class="praice-discount">
+           
+           <span class="wish-logo" > <i class="fa-${
+             result.wished ? "solid" : "regular"
+           } fa-bookmark"></i></span>  
+      </div>
+    </div>
       </div>
     </div>`;
     }
@@ -97,17 +98,19 @@ class ProductView extends View {
         <div class="img-container" >
           <img  src="${result.image}">
         </div>
-          <p class="item-title" >${result.title}</p>
-          <div class="rating" data-rate="" >${result.rating.rate}/5</div>
-          <div class="praice-discount">
-                 <div class="price" >
-                  <span class="price only-price" >£E${result.price}.00</span>
-                 </div>
-             <span class="wish-logo"  title="add to wishlist"> <i class="fa-${
-               result.wished ? "solid" : "regular"
-             } fa-heart"></i></span>
-            </div>
-        </div>
+     <div class= "div-card">
+     <p class="item-title" >${result.title}</p>
+     <div class="rating" data-rate="" > <i class="fa-solid fa-book-open-reader"></i> ${
+       result.rating.rate
+     }/5</div>
+     <div class="praice-discount">
+        
+        <span class="wish-logo"  title="add to wishlist"> <i class="fa-${
+          result.wished ? "solid" : "regular"
+        } fa-bookmark"></i></span>
+       </div>
+   </div>
+     </div>
       </div>`;
     }
   }

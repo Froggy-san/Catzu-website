@@ -18,7 +18,12 @@ class SortView extends View {
 
       // this.sortingBy = btn.dataset.sort;
 
-      this.toggle(btn);
+      //   this.toggle(btn)
+      this.removeActive();
+      btn.classList.add("btn--active");
+      //   btn.document.document
+      //     .querySelector(".fa-solid")
+      //     .classList.add("btn--active");
 
       handler(btn.dataset.sort);
     });

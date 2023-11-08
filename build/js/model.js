@@ -22,9 +22,9 @@ const products = [
 
     id: 21,
     image: [
-      "https://m.media-amazon.com/images/I/61p+pI6HutL._AC_SL1500_.jpg",
-      "https://m.media-amazon.com/images/I/316nEE+AbLL._AC_.jpg",
-      "https://m.media-amazon.com/images/I/41UoTwboZ7L._AC_.jpg",
+      `https://i.guim.co.uk/img/media/e05174ec674b20868457250d12ee09e944a5e393/96_341_5055_3035/master/5055.jpg?width=620&dpr=2&s=none`,
+      `https://i.guim.co.uk/img/media/e05174ec674b20868457250d12ee09e944a5e393/96_341_5055_3035/master/5055.jpg?width=620&dpr=2&s=none`,
+      `https://i.guim.co.uk/img/media/e05174ec674b20868457250d12ee09e944a5e393/96_341_5055_3035/master/5055.jpg?width=620&dpr=2&s=none`,
     ],
     discountedPrice: 222,
     price: 695,
